@@ -32,7 +32,7 @@ q2m <- max(q2[,2])
 plot(x=q2[,1], y=q2[,2], type = "l", main = "Average Daily Activity Pattern", xlab = "Interval", ylab = "Average Steps")
 ```
 
-The interval, on average across all the days in the dataset, contains the maximum number of steps is `q2[q2$x == q2m,1]`.
+The interval, on average across all the days in the dataset, contains the maximum number of steps is `r q2[q2$x == q2m,1]`.
 
 ## Imputing missing values
 Total number of NAs is `sum(is.na(activity$steps))`.
@@ -47,6 +47,7 @@ nactivity$nsteps <- ifelse(is.na(nactivity$steps), q2[q2$interval == nactivity$i
 q3 <- aggregate(nactivity$nsteps,list(nactivity$date),sum)
 hist(q3[,2], main = "Total number of step taken per day", xlab = "# of Steps", ylab = "# of Days", col = "dark grey")
 ```
+
 The mean total number of steps taken per day is `r mean(q3[,2])`, the medium total number of steps taken per day is `r median(q3[,2])`. This mean and median is different from what we had in question one. Inputting missing data made the result more reliable. 
 
 ## Are there differences in activity patterns between weekdays and weekends?
